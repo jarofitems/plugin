@@ -5,7 +5,7 @@ chrome.runtime.onMessage.addListener(function (request, sender, sendResponse) {
     // console.log(request, sender, sendResponse);
     sendResponse('我是后台，我已收到你的消息：');
     $.ajax({
-        url: "http://192.168.1.136:9001/exprotWord",
+        url: "http://112.74.190.111/exprotWord",
         type: "post",
         dataType: "json",
         contentType: 'application/json;charset=utf-8',
@@ -13,7 +13,7 @@ chrome.runtime.onMessage.addListener(function (request, sender, sendResponse) {
         success: function (res) {
             console.log(res);  //在console中查看数据
             if (res.code == 200) {
-                var urls = "http://192.168.1.136/file/" + res.data
+                var urls = "http://112.74.190.111/file/" + res.data
                 console.log(urls)
                 var a = document.createElement('a');
                 a.download = '';
@@ -28,7 +28,7 @@ chrome.runtime.onMessage.addListener(function (request, sender, sendResponse) {
         error: function (err) {
             alert("导出文档失败")
             console.log(err)
-            // var urls = "http://192.168.1.136/file/" + err.responseText
+            // var urls = "http://112.74.190.111/file/" + err.responseText
             // var a = document.createElement('a');
             // a.download = '';
             // a.href = urls;
